@@ -4,14 +4,15 @@ import { FocusCards } from './components/ui/focus-cards'
 function Projects() {
   const mainProjects = [
     {
-      title: 'Expense Tracker Application',
+      title: 'Personal Portfolio Website',
       bullets: [
-        'Developed a full-stack expense management system using React.js, integrating a RESTful API with complete CRUD functionality.',
-        'Implemented global state management using React Context API to handle transactions, balance calculations, and error states.',
-        'Designed a responsive front end with clean data visualisations and optimized API communication using Axios.'
+        'Developed a modern, responsive portfolio website to showcase frontend development skills, projects, and technical expertise.',
+        'Implemented interactive UI components including 3D perspective cards, focus card states, and encrypted text animations.',
+        'Applied contemporary web development best practices using vanilla CSS variables, modular React components, and fluid layouts.'
       ],
-      tag: 'Full Stack Integration',
-      imageText: 'Expense Engine'
+      tag: 'React • JavaScript • HTML5 • CSS3',
+      image: '/portfolio-screenshot.png',
+      imageText: 'Portfolio Site'
     },
     {
       title: 'Real-Time Inventory Dashboard',
@@ -27,12 +28,12 @@ function Projects() {
 
   const miniProjects = [
     {
-      title: 'Personal Portfolio Website',
+      title: 'Expense Tracker Application',
       bullets: [
-        'Built a responsive Braun-styled web page with Vite, React.js, and pure CSS3.',
-        'Integrated modular JSX components and custom interactive glow effects.'
+        'Developed a full-stack expense management system using React.js and Context API.',
+        'Designed a clean frontend interface with transaction filtering and transaction charts.'
       ],
-      imageText: 'Portfolio Site'
+      imageText: 'Expense Engine'
     },
     {
       title: 'Task Planner Application',
@@ -66,9 +67,17 @@ function Projects() {
           {mainProjects.map((project, index) => (
             <div className="project-card-main" key={index}>
               <div className="project-img-container">
-                <div className="project-img-placeholder">
-                  {project.imageText}
-                </div>
+                {project.image ? (
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                  />
+                ) : (
+                  <div className="project-img-placeholder">
+                    {project.imageText}
+                  </div>
+                )}
               </div>
               <div className="project-content">
                 <span className="section-label" style={{ color: 'var(--color-tertiary)' }}>{project.tag}</span>
@@ -91,9 +100,17 @@ function Projects() {
           {miniProjects.map((project, index) => (
             <div className="project-card-mini" key={index}>
               <div className="project-img-container-mini">
-                <div className="project-img-placeholder-mini">
-                  {project.imageText}
-                </div>
+                {project.image ? (
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                  />
+                ) : (
+                  <div className="project-img-placeholder-mini">
+                    {project.imageText}
+                  </div>
+                )}
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-sm)' }}>
                 <h3 className="project-title" style={{ margin: 0 }}>{project.title}</h3>
@@ -108,6 +125,7 @@ function Projects() {
           ))}
         </FocusCards>
       </div>
+
     </section>
   )
 }
