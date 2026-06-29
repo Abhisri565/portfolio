@@ -749,11 +749,13 @@ h1, h2, h3, h4 {
   color: #000000 !important;
 }
 
-/* Project card links resetting */
-.project-card-main, .project-card-mini {
+/* Project card links resetting & Pointer cursors for card hover states */
+.project-card-main, .project-card-mini, .skill-card {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
+
 
 
 
