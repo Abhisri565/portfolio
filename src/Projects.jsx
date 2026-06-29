@@ -12,7 +12,8 @@ function Projects() {
       ],
       tag: 'React • JavaScript • HTML5 • CSS3',
       image: '/portfolio-screenshot.png',
-      imageText: 'Portfolio Site'
+      imageText: 'Portfolio Site',
+      link: 'https://abhisri-portfolio.netlify.app/'
     },
     {
       title: 'Real-Time Inventory Dashboard',
@@ -64,32 +65,36 @@ function Projects() {
       <div className="projects-group">
         <div className="projects-group-title">Featured Main Projects</div>
         <FocusCards className="main-projects-grid">
-          {mainProjects.map((project, index) => (
-            <div className="project-card-main" key={index}>
-              <div className="project-img-container">
-                {project.image ? (
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
-                  />
-                ) : (
-                  <div className="project-img-placeholder">
-                    {project.imageText}
-                  </div>
-                )}
-              </div>
-              <div className="project-content">
-                <span className="section-label" style={{ color: 'var(--color-tertiary)' }}>{project.tag}</span>
-                <h3 className="project-title">{project.title}</h3>
-                <ul className="project-desc-list">
-                  {project.bullets.map((bullet, idx) => (
-                    <li key={idx}>{bullet}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+          {mainProjects.map((project, index) => {
+            const CardTag = project.link ? 'a' : 'div'
+            const linkProps = project.link ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' } : {}
+            return (
+              <CardTag className="project-card-main" key={index} {...linkProps}>
+                <div className="project-img-container">
+                  {project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                    />
+                  ) : (
+                    <div className="project-img-placeholder">
+                      {project.imageText}
+                    </div>
+                  )}
+                </div>
+                <div className="project-content">
+                  <span className="section-label" style={{ color: 'var(--color-tertiary)' }}>{project.tag}</span>
+                  <h3 className="project-title">{project.title}</h3>
+                  <ul className="project-desc-list">
+                    {project.bullets.map((bullet, idx) => (
+                      <li key={idx}>{bullet}</li>
+                    ))}
+                  </ul>
+                </div>
+              </CardTag>
+            )
+          })}
         </FocusCards>
       </div>
 
@@ -97,38 +102,42 @@ function Projects() {
       <div className="projects-group" style={{ marginTop: 'var(--spacing-lg)' }}>
         <div className="projects-group-title">Additional Mini Projects</div>
         <FocusCards className="mini-projects-grid">
-          {miniProjects.map((project, index) => (
-            <div className="project-card-mini" key={index}>
-              <div className="project-img-container-mini">
-                {project.image ? (
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
-                  />
-                ) : (
-                  <div className="project-img-placeholder-mini">
-                    {project.imageText}
-                  </div>
-                )}
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-sm)' }}>
-                <h3 className="project-title" style={{ margin: 0 }}>{project.title}</h3>
-                <span className="section-label" style={{ fontSize: '0.6rem', margin: 0 }}>Mini</span>
-              </div>
-              <ul className="project-desc-list" style={{ margin: 0 }}>
-                {project.bullets.map((bullet, idx) => (
-                  <li key={idx}>{bullet}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {miniProjects.map((project, index) => {
+            const CardTag = project.link ? 'a' : 'div'
+            const linkProps = project.link ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' } : {}
+            return (
+              <CardTag className="project-card-mini" key={index} {...linkProps}>
+                <div className="project-img-container-mini">
+                  {project.image ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} 
+                    />
+                  ) : (
+                    <div className="project-img-placeholder-mini">
+                      {project.imageText}
+                    </div>
+                  )}
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-sm)' }}>
+                  <h3 className="project-title" style={{ margin: 0 }}>{project.title}</h3>
+                  <span className="section-label" style={{ fontSize: '0.6rem', margin: 0 }}>Mini</span>
+                </div>
+                <ul className="project-desc-list" style={{ margin: 0 }}>
+                  {project.bullets.map((bullet, idx) => (
+                    <li key={idx}>{bullet}</li>
+                  ))}
+                </ul>
+              </CardTag>
+            )
+          })}
         </FocusCards>
       </div>
-
     </section>
   )
 }
 
 export default Projects
+
 

@@ -749,5 +749,12 @@ h1, h2, h3, h4 {
   color: #000000 !important;
 }
 
+/* Project card links resetting */
+.project-card-main, .project-card-mini {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 
 
