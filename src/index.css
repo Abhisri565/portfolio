@@ -739,11 +739,15 @@ h1, h2, h3, h4 {
 .text-neutral-500 {
   color: var(--color-secondary) !important;
 }
+.text-white {
+  color: #FFFFFF !important;
+}
 .dark\:text-white {
   color: #FFFFFF !important;
 }
 .text-black {
   color: #000000 !important;
 }
+
 
 

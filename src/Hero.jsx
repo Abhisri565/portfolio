@@ -63,10 +63,11 @@ function Hero() {
                 <EncryptedText
                   text="Polisetty Sunayana Abhisri"
                   encryptedClassName="text-neutral-500"
-                  revealedClassName="dark:text-white text-black"
+                  revealedClassName="text-white"
                   revealDelayMs={50}
                 />
               </h1>
+
               <div className="hero-subtitle" style={{ margin: '4px 0 0 0' }}>Java Full Stack Developer</div>
             </div>
 
