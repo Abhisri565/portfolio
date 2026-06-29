@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import { EncryptedText } from './components/ui/encrypted-text'
 
 function Hero() {
   const cardRef = useRef(null)
@@ -59,10 +60,16 @@ function Hero() {
             <div style={{ transform: 'translateZ(40px)', transition: 'transform 0.15s ease' }}>
               <span className="section-label" style={{ marginBottom: '4px' }}>Overview</span>
               <h1 style={{ fontSize: '2.2rem', fontWeight: 700, lineHeight: '1.2', color: '#FFFFFF' }}>
-                Polisetty Sunayana Abhisri
+                <EncryptedText
+                  text="Polisetty Sunayana Abhisri"
+                  encryptedClassName="text-neutral-500"
+                  revealedClassName="dark:text-white text-black"
+                  revealDelayMs={50}
+                />
               </h1>
               <div className="hero-subtitle" style={{ margin: '4px 0 0 0' }}>Java Full Stack Developer</div>
             </div>
+
 
             {/* Description Text */}
             <p 
@@ -215,9 +222,9 @@ function Hero() {
                 &nbsp;&nbsp;String <span style={{ color: '#FFBD2E' }}>name</span> = <span style={{ color: 'var(--color-tertiary)' }}>"Polisetty Sunayana Abhisri"</span>;<br />
                 &nbsp;&nbsp;String <span style={{ color: '#FFBD2E' }}>role</span> = <span style={{ color: 'var(--color-tertiary)' }}>"Java Full Stack Dev"</span>;<br />
                 &nbsp;&nbsp;String[] <span style={{ color: '#FFBD2E' }}>stack</span> = &#123;<span style={{ color: '#57B5E8' }}>"Spring Boot", "React", "MySQL"</span>&#125;;<br />
-                &nbsp;&nbsp;<span style={{ color: '#C5A5E8' }}>// Active Intern at TapAcademy</span><br />
                 &#125;
               </div>
+
             </div>
           </div>
 

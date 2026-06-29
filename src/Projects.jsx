@@ -1,4 +1,5 @@
 import React from 'react'
+import { FocusCards } from './components/ui/focus-cards'
 
 function Projects() {
   const mainProjects = [
@@ -61,7 +62,7 @@ function Projects() {
       {/* Main Highlighted Projects */}
       <div className="projects-group">
         <div className="projects-group-title">Featured Main Projects</div>
-        <div className="main-projects-grid">
+        <FocusCards className="main-projects-grid">
           {mainProjects.map((project, index) => (
             <div className="project-card-main" key={index}>
               <div className="project-img-container">
@@ -80,13 +81,13 @@ function Projects() {
               </div>
             </div>
           ))}
-        </div>
+        </FocusCards>
       </div>
 
       {/* Mini Projects (Differentiable, less highlighted) */}
       <div className="projects-group" style={{ marginTop: 'var(--spacing-lg)' }}>
         <div className="projects-group-title">Additional Mini Projects</div>
-        <div className="mini-projects-grid">
+        <FocusCards className="mini-projects-grid">
           {miniProjects.map((project, index) => (
             <div className="project-card-mini" key={index}>
               <div className="project-img-container-mini">
@@ -105,10 +106,11 @@ function Projects() {
               </ul>
             </div>
           ))}
-        </div>
+        </FocusCards>
       </div>
     </section>
   )
 }
 
 export default Projects
+
