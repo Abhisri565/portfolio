@@ -39,9 +39,9 @@ export function EncryptedText({
           .join('')
       })
 
-      // Increment by 0.25 instead of 0.5 to slow down the settling process
-      // and keep the scramble animation running longer per character
-      currentIteration += 0.25
+      // Increment by 0.5 instead of 0.25 to restore original speed
+      // and keep the scramble animation running at the desired speed
+      currentIteration += 0.5
       if (currentIteration > maxIterations) {
         clearInterval(interval)
         setDisplayText(text)

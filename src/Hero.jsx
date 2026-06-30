@@ -25,6 +25,25 @@ function Hero() {
     setTranslateZ(15)
   }
 
+  const handleTouchMove = (e) => {
+    if (!cardRef.current || e.touches.length === 0) return
+    const card = cardRef.current
+    const rect = card.getBoundingClientRect()
+    const width = rect.width
+    const height = rect.height
+    
+    const touch = e.touches[0]
+    const touchX = touch.clientX - rect.left - width / 2
+    const touchY = touch.clientY - rect.top - height / 2
+    
+    const rY = (touchX / (width / 2)) * 12
+    const rX = -(touchY / (height / 2)) * 12
+    
+    setRotateX(rX)
+    setRotateY(rY)
+    setTranslateZ(15)
+  }
+
   const handleMouseLeave = () => {
     setRotateX(0)
     setRotateY(0)
@@ -40,6 +59,8 @@ function Hero() {
             ref={cardRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleMouseLeave}
             style={{
               transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px)`,
               transition: 'transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.15s ease',
@@ -64,9 +85,10 @@ function Hero() {
                   text="Polisetty Sunayana Abhisri"
                   encryptedClassName="text-neutral-500"
                   revealedClassName="text-white"
-                  revealDelayMs={100}
+                  revealDelayMs={50}
                 />
               </h1>
+
 
 
               <div className="hero-subtitle" style={{ margin: '4px 0 0 0' }}>Java Full Stack Developer</div>

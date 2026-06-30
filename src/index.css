@@ -106,6 +106,45 @@ h1, h2, h3, h4 {
     padding: var(--spacing-md);
   }
 
+  /* Projects grid mobile adjustments */
+  .main-projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  /* Resume section mobile stacking */
+  .resume-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .resume-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .resume-actions a {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Footer responsiveness */
+  .footer-links-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+  }
+
+  .footer-contacts {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 600px) {
   /* Mobile Navbar hamburger dropdown */
   .nav-toggle {
     display: block;
@@ -147,44 +186,8 @@ h1, h2, h3, h4 {
     border-bottom: none;
     color: var(--color-tertiary);
   }
-
-  /* Projects grid mobile adjustments */
-  .main-projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-md);
-  }
-
-  /* Resume section mobile stacking */
-  .resume-box {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-md);
-  }
-
-  .resume-actions {
-    width: 100%;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
-  .resume-actions a {
-    text-align: center;
-    width: 100%;
-  }
-
-  /* Footer responsiveness */
-  .footer-links-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-lg);
-  }
-
-  .footer-contacts {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-sm);
-  }
 }
+
 
 
 /* Header & Navbar - Translucent Dark Glass */
