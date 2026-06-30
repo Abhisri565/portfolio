@@ -147,7 +147,7 @@ h1, h2, h3, h4 {
 @media (max-width: 600px) {
   /* Mobile Navbar hamburger dropdown */
   .nav-toggle {
-    display: block;
+    display: flex !important;
     z-index: 101;
   }
 
@@ -237,12 +237,24 @@ h1, h2, h3, h4 {
 
 .nav-toggle {
   display: none;
-  background: none;
+  background: transparent;
   border: none;
   color: var(--color-primary);
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
 }
+
+.nav-toggle:hover {
+  color: var(--color-tertiary);
+}
+
+.nav-toggle svg {
+  display: block;
+}
+
 
 .nav-item a {
   font-family: var(--font-label);
