@@ -29,7 +29,7 @@ export function EncryptedText({
         return text
           .split('')
           .map((char, index) => {
-            if (index < currentIteration) {
+            if (index < Math.floor(currentIteration)) {
               return char
             }
             if (char === ' ') return ' '
@@ -39,7 +39,9 @@ export function EncryptedText({
           .join('')
       })
 
-      currentIteration += 1
+      // Increment by 0.25 instead of 0.5 to slow down the settling process
+      // and keep the scramble animation running longer per character
+      currentIteration += 0.25
       if (currentIteration > maxIterations) {
         clearInterval(interval)
         setDisplayText(text)

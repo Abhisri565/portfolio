@@ -92,13 +92,100 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --spacing-lg: 20px;
+    --spacing-xl: 40px;
+  }
   .grid-2 {
     grid-template-columns: 1fr;
   }
   .display-title {
     font-size: 2.5rem;
   }
+  .container {
+    padding: var(--spacing-md);
+  }
+
+  /* Mobile Navbar hamburger dropdown */
+  .nav-toggle {
+    display: block;
+    z-index: 101;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(7, 9, 12, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(163, 167, 175, 0.2);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .nav-menu.open {
+    max-height: 350px;
+  }
+
+  .nav-menu .nav-links {
+    flex-direction: column;
+    padding: var(--spacing-md) var(--spacing-lg);
+    gap: var(--spacing-sm);
+  }
+
+  .nav-menu .nav-item a {
+    display: block;
+    padding: var(--spacing-sm) 0;
+    font-size: 0.85rem;
+    border-bottom: none;
+  }
+
+  .nav-menu .nav-item a:hover {
+    border-bottom: none;
+    color: var(--color-tertiary);
+  }
+
+  /* Projects grid mobile adjustments */
+  .main-projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  /* Resume section mobile stacking */
+  .resume-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .resume-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .resume-actions a {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Footer responsiveness */
+  .footer-links-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+  }
+
+  .footer-contacts {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
 }
+
 
 /* Header & Navbar - Translucent Dark Glass */
 .navbar {
@@ -145,6 +232,15 @@ h1, h2, h3, h4 {
   list-style: none;
 }
 
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: 4px;
+}
+
 .nav-item a {
   font-family: var(--font-label);
   font-size: 0.72rem;
@@ -156,6 +252,7 @@ h1, h2, h3, h4 {
   padding-bottom: 4px;
   border-bottom: 2px solid transparent;
 }
+
 
 .nav-item a:hover {
   color: var(--color-primary);
